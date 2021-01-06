@@ -7,15 +7,35 @@
  */
 
 // ES5 version
+// function bubbleSort(arr) {
+//   for (var i = arr.length; i > 0; i--) {
+//     for (var j = 0; j < i - 1; j++) {
+//       if (arr[j] > arr[j + 1]) {
+//         var tmp = arr[j];
+//         arr[j] = arr[j + 1];
+//         arr[j + 1] = tmp;
+//       }
+//     }
+//   }
+//   console.log(arr);
+//   return arr;
+// }
+// bubbleSort([12, 3, 45, 14, 23, 5]);
+
+// No swap optimization
 function bubbleSort(arr) {
+  var noSwap;
   for (var i = arr.length; i > 0; i--) {
+    noSwap = true;
     for (var j = 0; j < i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
         var tmp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = tmp;
+        noSwap = false;
       }
     }
+    if (noSwap) break;
   }
   console.log(arr);
   return arr;
